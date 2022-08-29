@@ -4,16 +4,16 @@ import jwtDecode from 'jwt-decode';
 import { signIn, signOut } from '../ACTIONS';
 import { connect } from 'react-redux/es/exports';
 
-const GoogleAuth = (props) => {
-    const [user, setUser] = useState(null);
+const GoogleAuth = ({ user, signIn, signOut }) => {
 
     useEffect(() => {
-        console.log(props.user);
+        console.log(user);
 
         google.accounts.id.initialize({
             client_id: '340776448169-pv7vta4ad78en7mvf9obtrvnns7e59f6.apps.googleusercontent.com',
             callback: (response) => {
-                props.signIn(jwtDecode(response.credential))
+                signIn(jwtDecode(response.credential))
+
             },
         })
 
@@ -23,13 +23,13 @@ const GoogleAuth = (props) => {
         )
 
 
-    });
+    }, [user]);
 
     const displayMethod = () => {
 
-        if (props.user) {
+        if (user) {
             return (
-                <button id='hey' onClick={() => { props.signOut() }} className='ui secondary button'>Logout</button>
+                <button id='hey' onClick={() => { signOut(); }} className='ui secondary button'>Logout</button>
             )
         } else {
             return (
