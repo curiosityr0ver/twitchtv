@@ -25,7 +25,6 @@ const GoogleAuth = () => {
     const displayMethod = () => {
 
         if (user) {
-
             return (
                 <button id='hey' onClick={() => { setUser(null); }} className='ui secondary button'>Logout</button>
             )
@@ -40,7 +39,6 @@ const GoogleAuth = () => {
         <div>
             {displayMethod()}
         </div>
-
     );
 }
 
