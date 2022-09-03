@@ -16,9 +16,9 @@ const Header = () => {
             <div className="menu">
                 <Link to="/streams/delete" className='item'><h3>Delete</h3></Link>
             </div>
-            <div className="menu">
+            {/* <div className="menu">
                 <GoogleAuth />
-            </div>
+            </div> */}
         </div>
     );
 }
