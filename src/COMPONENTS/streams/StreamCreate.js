@@ -1,10 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStream } from '../../ACTIONS';
+import { useNavigate } from "react-router-dom";
+
 
 import { Field, formValues, reduxForm } from 'redux-form';
 
 const StreamCreate = (props) => {
+
+    const navigate = useNavigate();
+
+    const handleJump = () => {
+
+
+    }
 
     function inputNew(formProps) {
 
@@ -14,6 +23,8 @@ const StreamCreate = (props) => {
             </div>
         )
     }
+
+
 
     return (
         <div>
@@ -29,7 +40,8 @@ const StreamCreate = (props) => {
                 <br />
                 <button style={{ marginTop: "1px" }} id='submit' className='ui button primary'>Submit</button>
             </form>
-        </div>
+            <button className='ui button' onClick={handleJump}>Jump</button>
+        </div >
     );
 }
 

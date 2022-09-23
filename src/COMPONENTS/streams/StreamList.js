@@ -21,13 +21,15 @@ const StreamList = ({ streams, fetchStreams, user }) => {
                         <div className='item' key={stream.id}>
                             <i className='large middle aligned icon camera' />
                             <div className="content">
-                                <div style={{ fontSize: "large" }}>{stream.title}</div>
-                                <div className="description">
-                                    {stream.description}
+                                <div style={{ fontSize: "large" }}>
+                                    {stream.title}
                                     <div className='ui right floated content'>
                                         <button className='ui button'>Edit</button>
                                         <button className='ui button red'>Delete</button>
                                     </div>
+                                </div>
+                                <div className="description">
+                                    {stream.description}
                                 </div>
                             </div>
                         </div>
@@ -57,8 +59,8 @@ const StreamList = ({ streams, fetchStreams, user }) => {
     function createLinkMethod() {
         if (user) {
             return (
-                <div>
-                    <Link to="/streams/create" className='item'><h3>Create</h3></Link>
+                <div style={{ textAlign: 'right' }} >
+                    <Link to="/streams/create" className='ui button primary'><h3>Create</h3></Link>
                 </div>
             )
         }
