@@ -4,6 +4,7 @@ import './HeaderStyle.css'
 import GoogleAuth from './GoogleAuth';
 
 const Header = () => {
+
     return (
         <div id='header' className='ui secondary pointing menu'>
             <Link to="/" className='item'><h3>Home</h3></Link>

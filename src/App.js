@@ -16,12 +16,12 @@ const App = () => {
 
       <BrowserRouter>
         <Header />
-        <Routes>  //routes to various pages on the basis of address bar
+        <Routes>
           <Route path="/" exact element={<StreamList />} />
           <Route path="/header" exact element={<Header />} />
           <Route path="/streams/create" exact element={<StreamCreate />} />
           <Route path="/streams/delete" exact element={<StreamDelete />} />
-          <Route path="/streams/edit" exact element={<StreamEdit />} />
+          <Route path="/streams/edit/:id" exact element={<StreamEdit />} />
           <Route path="/streams/show" exact element={<StreamShow />} />
         </Routes>
       </BrowserRouter>

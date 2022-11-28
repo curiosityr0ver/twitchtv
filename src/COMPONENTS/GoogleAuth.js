@@ -7,7 +7,7 @@ import { connect } from 'react-redux/es/exports';
 const GoogleAuth = ({ user, signIn, signOut }) => {
 
     useEffect(() => {
-        console.log(user);
+
 
         google.accounts.id.initialize({
             client_id: '340776448169-pv7vta4ad78en7mvf9obtrvnns7e59f6.apps.googleusercontent.com',
@@ -28,6 +28,7 @@ const GoogleAuth = ({ user, signIn, signOut }) => {
     const displayMethod = () => {
 
         if (user) {
+            console.log(user.email);
             return (
                 <button id='hey' onClick={() => { signOut(); }} className='ui secondary button'>Logout</button>
             )

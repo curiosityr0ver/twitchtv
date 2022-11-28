@@ -11,8 +11,7 @@ const StreamCreate = (props) => {
     const navigate = useNavigate();
 
     const handleJump = () => {
-
-
+        navigate("/");
     }
 
     function inputNew(formProps) {

@@ -1,18 +1,21 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { connect } from 'react-redux/es/exports';
-import { fetchStreams } from '../../ACTIONS';
+import { fetchStreams, deleteStream } from '../../ACTIONS';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import StreamCreate from './StreamCreate';
 
-const StreamList = ({ streams, fetchStreams, user }) => {
+const StreamList = ({ streams, fetchStreams, deleteStream, user }) => {
 
     useEffect(() => {
         fetchStreams()
+
     }, []);
 
-    function displayMethod() {
 
+    function displayMethod() {
+        if (user) console.log(user.email);
+        console.log(streams);
         if (streams) {
             const strArr = Object.values(streams) //convert object to array
             return (strArr.map((stream) => {
@@ -24,15 +27,16 @@ const StreamList = ({ streams, fetchStreams, user }) => {
                                 <div style={{ fontSize: "large" }}>
                                     {stream.title}
                                     <div className='ui right floated content'>
-                                        <button className='ui button'>Edit</button>
-                                        <button className='ui button red'>Delete</button>
+                                        <Link to={`/streams/edit/${stream.id}`} className='ui button'>Edit</Link>
+
+                                        <button className='ui button red' onClick={() => { deleteStream(stream.id) }}>Delete</button>
                                     </div>
                                 </div>
                                 <div className="description">
                                     {stream.description}
                                 </div>
                             </div>
-                        </div>
+                        </div >
                     )
                 } else {
                     return (
@@ -81,4 +85,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { fetchStreams })(StreamList);
+export default connect(mapStateToProps, { fetchStreams, deleteStream })(StreamList);
