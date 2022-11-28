@@ -10,10 +10,6 @@ const StreamCreate = (props) => {
 
     const navigate = useNavigate();
 
-    const handleJump = () => {
-        navigate("/");
-    }
-
     function inputNew(formProps) {
 
         return (
@@ -28,7 +24,7 @@ const StreamCreate = (props) => {
     return (
         <div>
             <h3>Ho</h3>
-            <form className='ui form' onSubmit={props.handleSubmit((res) => { console.log(res); props.createStream(res) })}>
+            <form className='ui form' onSubmit={props.handleSubmit((res) => { props.createStream(res); navigate("/"); })}>
                 <label><b>Title:</b></label>
                 <br />
                 <Field name="title" component={inputNew} label="Enter Title" />
@@ -39,7 +35,6 @@ const StreamCreate = (props) => {
                 <br />
                 <button style={{ marginTop: "1px" }} id='submit' className='ui button primary'>Submit</button>
             </form>
-            <button className='ui button' onClick={handleJump}>Jump</button>
         </div >
     );
 }

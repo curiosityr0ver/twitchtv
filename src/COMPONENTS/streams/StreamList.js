@@ -14,8 +14,8 @@ const StreamList = ({ streams, fetchStreams, deleteStream, user }) => {
 
 
     function displayMethod() {
-        if (user) console.log(user.email);
-        console.log(streams);
+        // if (user) console.log(user.email);
+        // console.log(streams);
         if (streams) {
             const strArr = Object.values(streams) //convert object to array
             return (strArr.map((stream) => {
