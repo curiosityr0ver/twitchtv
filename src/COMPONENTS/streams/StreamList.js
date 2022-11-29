@@ -9,7 +9,6 @@ const StreamList = ({ streams, fetchStreams, deleteStream, user }) => {
 
     useEffect(() => {
         fetchStreams()
-
     }, []);
 
 
